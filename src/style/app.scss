@@ -1,0 +1,17 @@
+.app {
+	.content-wrapper {
+		.component-wrapper {
+			width: 97vw;
+			margin-bottom: 10px;
+			border-bottom: 1px solid gray;
+
+			h1 {
+				font-size: 0.9em;
+			}
+
+			button {
+				margin: 5px;
+			}
+		}
+	}
+}
