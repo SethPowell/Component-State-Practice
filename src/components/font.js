@@ -13,6 +13,7 @@ export default class Font extends Component {
 
 		this.fontInc = this.fontInc.bind(this);
 		this.fontDec = this.fontDec.bind(this);
+		this.handleKeyPress = this.handleKeyPress.bind(this);
 	}
 
 	fontInc() {
@@ -37,6 +38,20 @@ export default class Font extends Component {
 		});
 	}
 
+	handleKeyPress(event) {
+		if (event.key === "Enter") {
+			const inputField = this.inputField;
+			const inputSize = inputField.value;
+			const inputFontSize = `${inputSize}px`;
+			this.setState({
+				size: inputSize,
+				style: {
+					fontSize: inputFontSize,
+				},
+			});
+		}
+	}
+
 	render() {
 		return (
 			<div className="font-wrapper">
@@ -44,9 +59,11 @@ export default class Font extends Component {
 					{this.state.size}px
 				</h1>
 				<input
-					className="font-input"
-					placeholder={this.state.size}
-				></input>
+					className="fontInput"
+					onKeyPress={this.handleKeyPress}
+					ref={(c) => (this.inputField = c)}
+					name="inputField"
+				/>
 				<button className="font-up-btn" onClick={this.fontInc}>
 					Increase
 				</button>
