@@ -5,51 +5,46 @@ export default class Font extends Component {
 		super();
 
 		this.state = {
+			inputVal: 12,
 			size: 12,
 			style: {
 				fontSize: "12px",
 			},
 		};
-
-		this.fontInc = this.fontInc.bind(this);
-		this.fontDec = this.fontDec.bind(this);
-		this.handleKeyPress = this.handleKeyPress.bind(this);
 	}
 
-	fontInc() {
-		const sizeUp = this.state.size + 1;
-		const upFontSize = `${sizeUp}px`;
-		this.setState({
-			size: sizeUp,
-			style: {
-				fontSize: upFontSize,
-			},
-		});
-	}
-
-	fontDec() {
-		const sizeDown = this.state.size - 1;
-		const downFontSize = `${sizeDown}px`;
-		this.setState({
-			size: sizeDown,
-			style: {
-				fontSize: downFontSize,
-			},
-		});
-	}
-
-	handleKeyPress(event) {
-		if (event.key === "Enter") {
-			const inputField = this.inputField;
-			const inputSize = inputField.value;
-			const inputFontSize = `${inputSize}px`;
+	changeFont(event) {
+		const direction = event.target.value;
+		if (direction === "+") {
+			const sizeUp = Number(this.state.size) + 1;
 			this.setState({
-				size: inputSize,
+				inputVal: sizeUp,
+				size: sizeUp,
 				style: {
-					fontSize: inputFontSize,
+					fontSize: `${sizeUp}px`,
+				},
+			});
+		} else if (direction === "-") {
+			const sizeDown = Number(this.state.size) - 1;
+			this.setState({
+				inputVal: sizeDown,
+				size: sizeDown,
+				style: {
+					fontSize: `${sizeDown}px`,
 				},
 			});
 		}
+	}
+
+	handleChange(event) {
+		const newVal = event.target.value;
+		this.setState({
+			inputVal: newVal,
+			size: newVal,
+			style: {
+				fontSize: `${newVal}px`,
+			},
+		});
 	}
 
 	render() {
@@ -60,14 +55,21 @@ export default class Font extends Component {
 				</h1>
 				<input
 					className="fontInput"
-					onKeyPress={this.handleKeyPress}
-					ref={(c) => (this.inputField = c)}
-					name="inputField"
+					value={this.state.inputVal}
+					onChange={this.handleChange.bind(this)}
 				/>
-				<button className="font-up-btn" onClick={this.fontInc}>
+				<button
+					className="font-up-btn"
+					onClick={this.changeFont.bind(this)}
+					value="+"
+				>
 					Increase
 				</button>
-				<button className="font-down-btn" onClick={this.fontDec}>
+				<button
+					className="font-down-btn"
+					onClick={this.changeFont.bind(this)}
+					value="-"
+				>
 					Decrease
 				</button>
 			</div>

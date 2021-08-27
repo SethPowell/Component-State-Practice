@@ -16,6 +16,31 @@ export default class Align extends Component {
 		this.handleCenterClick = this.handleCenterClick.bind(this);
 	}
 
+	// handleClick(arg) {
+	// 	if (arg === "left") {
+	// 		this.setState({
+	// 			style: {
+	// 				display: "flex",
+	// 				justifyContent: "flex-start",
+	// 			},
+	// 		});
+	// 	} else if (arg === "center") {
+	// 		this.setState({
+	// 			style: {
+	// 				display: "flex",
+	// 				justifyContent: "space-around",
+	// 			},
+	// 		});
+	// 	} else if (arg === "right") {
+	// 		this.setState({
+	// 			style: {
+	// 				display: "flex",
+	// 				justifyContent: "flex-end",
+	// 			},
+	// 		});
+	// 	}
+	// }
+
 	handleLeftClick() {
 		this.setState({
 			style: {
