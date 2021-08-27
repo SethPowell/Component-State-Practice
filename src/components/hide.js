@@ -9,6 +9,7 @@ export default class Hide extends Component {
 			style: {
 				display: "flex",
 			},
+			btn: "Hide",
 		};
 
 		this.toggleDisplay = this.toggleDisplay.bind(this);
@@ -21,6 +22,7 @@ export default class Hide extends Component {
 				style: {
 					display: "none",
 				},
+				btn: "Show",
 			});
 		} else if (this.state.hidden) {
 			this.setState({
@@ -28,6 +30,7 @@ export default class Hide extends Component {
 				style: {
 					display: "flex",
 				},
+				btn: "Hide",
 			});
 		}
 	}
@@ -39,7 +42,7 @@ export default class Hide extends Component {
 					Hide Me!
 				</h1>
 				<button className="hide-btn" onClick={this.toggleDisplay}>
-					Hide
+					{this.state.btn}
 				</button>
 			</div>
 		);
