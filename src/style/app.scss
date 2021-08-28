@@ -31,6 +31,25 @@
 				}
 			}
 
+			.clock-wrapper {
+				height: 65px;
+				display: grid;
+				grid-template-columns: 1fr 10fr;
+				grid-template-rows: 1.2fr 1fr;
+
+				.current-time {
+					height: 30px;
+					margin: 0px;
+				}
+
+				.toggle-btn {
+					grid-column-start: 1;
+					grid-column-end: 2;
+					grid-row-start: 2;
+					grid-row-end: -1;
+				}
+			}
+
 			.inc-wrapper {
 				h1 {
 					margin: 5px;
