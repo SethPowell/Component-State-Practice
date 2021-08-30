@@ -5,7 +5,7 @@ export default class Clock extends Component {
 		super();
 
 		this.state = {
-			time: new Date().toLocaleString().substring(10, 22),
+			time: new Date().toLocaleTimeString(),
 			style: {
 				visibility: "visible",
 			},
@@ -15,17 +15,14 @@ export default class Clock extends Component {
 	}
 
 	componentDidMount() {
-		this.intervalID = setInterval(() => this.seconds(), 1000);
+		this.intervalID = setInterval(
+			() => this.setState({ time: new Date().toLocaleTimeString() }),
+			1000
+		);
 	}
 
 	componentWillUnmount() {
 		clearInterval(this.intervalID);
-	}
-
-	seconds() {
-		this.setState({
-			time: new Date().toLocaleString().substring(10, 22),
-		});
 	}
 
 	toggleClock() {
