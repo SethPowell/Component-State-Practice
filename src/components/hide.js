@@ -7,7 +7,7 @@ export default class Hide extends Component {
 		this.state = {
 			hidden: false,
 			style: {
-				display: "flex",
+				visibility: "visible",
 			},
 			btn: "Hide",
 		};
@@ -18,17 +18,17 @@ export default class Hide extends Component {
 	toggleDisplay() {
 		if (!this.state.hidden) {
 			this.setState({
-				hidden: true,
+				hidden: !this.state.hidden,
 				style: {
-					display: "none",
+					visibility: "hidden",
 				},
 				btn: "Show",
 			});
 		} else if (this.state.hidden) {
 			this.setState({
-				hidden: false,
+				hidden: !this.state.hidden,
 				style: {
-					display: "flex",
+					visibility: "visible",
 				},
 				btn: "Hide",
 			});

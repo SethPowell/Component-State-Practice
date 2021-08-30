@@ -31,33 +31,6 @@ export default class Align extends Component {
 		});
 	}
 
-	// handleLeftClick() {
-	// 	this.setState({
-	// 		style: {
-	// 			display: "flex",
-	// 			justifyContent: "flex-start",
-	// 		},
-	// 	});
-	// }
-
-	// handleRightClick() {
-	// 	this.setState({
-	// 		style: {
-	// 			display: "flex",
-	// 			justifyContent: "flex-end",
-	// 		},
-	// 	});
-	// }
-
-	// handleCenterClick() {
-	// 	this.setState({
-	// 		style: {
-	// 			display: "flex",
-	// 			justifyContent: "space-around",
-	// 		},
-	// 	});
-	// }
-
 	render() {
 		return (
 			<div className="align-wrapper">

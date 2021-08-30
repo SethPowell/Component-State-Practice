@@ -5,9 +5,9 @@ export default class Clock extends Component {
 		super();
 
 		this.state = {
-			time: new Date().toLocaleString().substring(10, 21),
+			time: new Date().toLocaleString().substring(10, 22),
 			style: {
-				display: "block",
+				visibility: "visible",
 			},
 		};
 
@@ -24,20 +24,20 @@ export default class Clock extends Component {
 
 	seconds() {
 		this.setState({
-			time: new Date().toLocaleString().substring(10, 21),
+			time: new Date().toLocaleString().substring(10, 22),
 		});
 	}
 
 	toggleClock() {
 		let toggle = "";
-		if (this.state.style.display === "block") {
-			toggle = "none";
-		} else if (this.state.style.display === "none") {
-			toggle = "block";
+		if (this.state.style.visibility === "visible") {
+			toggle = "hidden";
+		} else if (this.state.style.visibility === "hidden") {
+			toggle = "visible";
 		}
 		this.setState({
 			style: {
-				display: toggle,
+				visibility: toggle,
 			},
 		});
 	}

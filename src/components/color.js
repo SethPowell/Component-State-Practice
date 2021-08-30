@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { floor, random } from "mathjs";
 
 export default class Color extends Component {
 	constructor() {
@@ -37,6 +38,21 @@ export default class Color extends Component {
 		}
 	}
 
+	randomColor() {
+		const hex = "0123456789abcdefABCDEF";
+		let randomList = "#";
+		for (let i = 0; i < 6; i++) {
+			let randomHex = "";
+			randomHex = hex[floor(random() * hex.length)];
+			randomList += randomHex;
+		}
+		this.setState({
+			style: {
+				color: `${randomList}`,
+			},
+		});
+	}
+
 	render() {
 		return (
 			<div className="color-wrapper">
@@ -46,6 +62,9 @@ export default class Color extends Component {
 					onChange={this.handleChange.bind(this)}
 					value={this.state.colorVal}
 				/>
+				<button type="button" onClick={this.randomColor.bind(this)}>
+					Random Color
+				</button>
 				<input
 					placeholder="Text"
 					onChange={this.handleChange.bind(this)}

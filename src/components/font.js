@@ -5,7 +5,7 @@ export default class Font extends Component {
 		super();
 
 		this.state = {
-			inputVal: 12,
+			inputVal: 1,
 			size: 12,
 			style: {
 				fontSize: "12px",
@@ -16,18 +16,18 @@ export default class Font extends Component {
 	changeFont(event) {
 		const direction = event.target.value;
 		if (direction === "+") {
-			const sizeUp = Number(this.state.size) + 1;
+			const sizeUp =
+				Number(this.state.size) + Number(this.state.inputVal);
 			this.setState({
-				inputVal: sizeUp,
 				size: sizeUp,
 				style: {
 					fontSize: `${sizeUp}px`,
 				},
 			});
 		} else if (direction === "-") {
-			const sizeDown = Number(this.state.size) - 1;
+			const sizeDown =
+				Number(this.state.size) - Number(this.state.inputVal);
 			this.setState({
-				inputVal: sizeDown,
 				size: sizeDown,
 				style: {
 					fontSize: `${sizeDown}px`,
@@ -40,10 +40,6 @@ export default class Font extends Component {
 		const newVal = event.target.value;
 		this.setState({
 			inputVal: newVal,
-			size: newVal,
-			style: {
-				fontSize: `${newVal}px`,
-			},
 		});
 	}
 
@@ -54,6 +50,7 @@ export default class Font extends Component {
 					{this.state.size}px
 				</h1>
 				<input
+					type="number"
 					className="fontInput"
 					value={this.state.inputVal}
 					onChange={this.handleChange.bind(this)}
