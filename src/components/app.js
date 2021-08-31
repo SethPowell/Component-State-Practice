@@ -3,11 +3,12 @@ import React, { Component } from "react";
 // import Hide from "./hide";
 import Increment from "./increment";
 import Font from "./font";
-import Color from "./color";
+// import Color from "./color";
 import Clock from "./clock";
 
 import Alignment from "./hooks/alignment";
 import Toggle from "./hooks/toggle";
+import Color from "./hooks/color2";
 
 export default class App extends Component {
 	render() {
