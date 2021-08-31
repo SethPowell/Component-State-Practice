@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 // import Align from "./align";
-import Hide from "./hide";
+// import Hide from "./hide";
 import Increment from "./increment";
 import Font from "./font";
 import Color from "./color";
 import Clock from "./clock";
 
 import Alignment from "./hooks/alignment";
+import Toggle from "./hooks/toggle";
 
 export default class App extends Component {
 	render() {
@@ -18,7 +19,7 @@ export default class App extends Component {
 					</div>
 
 					<div className="component-wrapper">
-						<Hide />
+						<Toggle />
 					</div>
 
 					<div className="component-wrapper">
