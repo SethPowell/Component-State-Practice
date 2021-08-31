@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { floor, random } from "mathjs";
 
 export default function color() {
@@ -6,6 +6,24 @@ export default function color() {
 	const [text, setText] = useState("Color Me!");
 	const [colorInput, setColorInput] = useState("black");
 	const [txtInput, setTxtInput] = useState("Color Me!");
+	const [mounted, setMounted] = useState(false);
+
+	useEffect(() => {
+		if (!mounted) {
+			console.log("Use Effect mounted");
+			setMounted(true);
+			console.log(mounted);
+		} else if (mounted) {
+			console.log("else useEffect ran");
+			window.onkeypress = (event) => {
+				if (event.key === "Enter") {
+					handleSubmit();
+				}
+			};
+		}
+
+		return () => (window.onkeypress = null);
+	});
 
 	const handleSubmit = () => {
 		setColor(colorInput);
