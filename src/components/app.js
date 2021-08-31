@@ -4,13 +4,14 @@ import React, { Component } from "react";
 // import Increment from "./increment";
 // import Font from "./font";
 // import Color from "./color";
-import Clock from "./clock";
+// import Clock from "./clock";
 
 import Alignment from "./hooks/alignment";
 import Toggle from "./hooks/toggle";
 import Color from "./hooks/color2";
 import Font from "./hooks/fontSize";
 import Increment from "./hooks/upDown";
+import Clock from "./hooks/time";
 
 export default class App extends Component {
 	render() {
